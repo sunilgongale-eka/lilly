@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="site.css" />
+    <script src="image-mapper.js"></script>
+    <script></script>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="container">
+        <div class="import-image">
+          <div id="uploadImage">
+            <label for="img">Select image:</label>
+            <input
+              type="file"
+              id="img"
+              name="img"
+              accept="image/*"
+              onchange="loadFile(event)"
+              auy
+            />
+          </div>
+          <div class="image-container">
+            <img
+              id="output"
+              class="uploded-image"
+              onclick="getAxis(event)"
+              onmousemove="mouse_position(event)"
+            />
+          </div>
+        </div>
+        <div class="description-box" id="descriptionBox">
+          <div id="enterDescription">
+            <p>Description</p>
+            <input type="text" id="description" autofocus class="descp-input" />
+            <div class="action-btn">
+              <span>
+                <button
+                  onclick="saveData()"
+                  id="saveButton"
+                  onkeydown="if (event.keyCode == 13)
+                document.getElementById('saveButton').click()"
+                  class="save-btn click-btns"
+                >
+                  <span class="tick-mark"></span>Save
+                </button>
+              </span>
+              <span>
+                <button
+                  class="cancel-btn click-btns"
+                  onclick="closeDescription()"
+                >
+                  <span>&#10006</span> Cancel
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="asideContainer">
+          <div id="imageData">
+            <p>Image Name: <span id="imageName"></span></p>
+            <p>Size: <span id="imageDimensions"></span></p>
+            <p>MIME Type: <span id="imageType"></span></p>
+          </div>
+          <div>
+            <table id="displayData">
+              <th class="short-column">X Pos</th>
+              <th class="short-column">Y Pos</th>
+              <th class="large-column">Description</th>
+              <tbody id="desc"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span id="pointer"></span>
+    <span id="hoverData"></span>
+  </body>
+</html>
